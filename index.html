@@ -75,6 +75,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-函数注释" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/20/%E5%87%BD%E6%95%B0%E6%B3%A8%E9%87%8A/" class="article-date">
+  <time class="dt-published" datetime="2025-09-19T16:50:33.000Z" itemprop="datePublished">2025-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/20/%E5%87%BD%E6%95%B0%E6%B3%A8%E9%87%8A/">函数注释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>函数注解<br>标注以字典的形式存放在函数的 <strong>annotations</strong> 属性中，并且不会影响函数的任何其他部分。<br>形参标注的定义方式是在形参名后加冒号，后面跟一个表达式，该表达式会被求值为标注的值。<br>返回值标注的定义方式是加组合符号 -&gt;，后面跟一个表达式，该标注位于形参列表和表示 def 语句结束的冒号之间。<br>任何形参都可以带有标注，甚至 *args 或 **kwargs 这样的形参也可以。<br>python<br>def _sum(x: int, y: int &#x3D; 10) -&gt; int:<br>    # {‘x’: &lt;class ‘int’&gt;, ‘y’: &lt;class ‘int’&gt;, ‘return’: &lt;class ‘int’&gt;}<br>    print(_sum.<strong>annotations</strong>)<br>    return x + y</p>
+<p>print(_sum(2, 5))       # 7<br>print(_sum(2))          # 12<br>print(_sum(‘2’, ‘5’))   # ‘25’</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/20/%E5%87%BD%E6%95%B0%E6%B3%A8%E9%87%8A/" data-id="cmfr2thh80000tsbt0na0frlw" data-title="函数注释" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-复合语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/09/20/%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5/" class="article-date">
@@ -642,58 +682,6 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
 
 
   
-    <article id="post-python循环语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/20/python%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="article-date">
-  <time class="dt-published" datetime="2025-09-19T16:25:26.000Z" itemprop="datePublished">2025-09-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/20/python%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/">python循环语句</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>循环语句</p>
-<ol>
-<li>for 语句<br>注： Python 中 for 语句迭代的不是递增的数值，而是序列的元素</li>
-</ol>
-<p>代码示例：</p>
-<p>python<br>for i in range(10):<br>    print(i)</p>
-<p>for c in ‘hello’:<br>    print(c)</p>
-<p>for s in [‘aa’, ‘bb’, ‘cc’]:<br>    print(s)</p>
-<ol start="2">
-<li>while 语句<br>while 语句用于在表达式保持为真(True)的情况下重复地执行<br>每次循环均会检测表达式的值是否为真(True)<br>代码示例：</li>
-</ol>
-<p>python<br>i &#x3D; 0<br>while i &lt; 10:<br>    print(i)<br>    i +&#x3D; 1<br>循环中的 break 和 continue 语句<br>break 语句用于跳出最近的 for 或 while 循环。<br>continue 表示继续执行循环的下一次迭代。<br>代码示例：</p>
-<p>python<br>for i in range(10):<br>    if i % 2 &#x3D;&#x3D; 0:  # 当是偶数时继续迭代，不打印。所以结果是仅打印奇数<br>        continue<br>    print(i)</p>
-<p>for c in ‘hello’:<br>    if c &#x3D;&#x3D; ‘l’:    # 当遍历到 l 时跳出循环。所以结果是仅打印了 h 和 e<br>        break<br>    print(c)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/20/python%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" data-id="cmfr2aqc800023sbte7zn52tv" data-title="python循环语句" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -730,6 +718,10 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
       <ul>
         
           <li>
+            <a href="/2025/09/20/%E5%87%BD%E6%95%B0%E6%B3%A8%E9%87%8A/">函数注释</a>
+          </li>
+        
+          <li>
             <a href="/2025/09/20/%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5/">复合语句</a>
           </li>
         
@@ -743,10 +735,6 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
         
           <li>
             <a href="/2025/09/20/%E7%AE%80%E5%8D%95%E8%AF%AD%E5%8F%A5/">简单语句</a>
-          </li>
-        
-          <li>
-            <a href="/2025/09/20/%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%BC%82%E5%B8%B8%E4%B8%AD%E7%9A%84else%E5%AD%90%E5%8F%A5/">循环与异常中的else子句</a>
           </li>
         
       </ul>
