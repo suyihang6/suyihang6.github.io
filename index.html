@@ -75,6 +75,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/20/python%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-09-19T16:27:32.000Z" itemprop="datePublished">2025-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/20/python%E5%87%BD%E6%95%B0/">python函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>函数</p>
+<ol>
+<li>函数定义<br>定义函数使用关键字 def，后跟函数名与括号内的形参列表。函数语句从下一行开始，并且必须缩进。<br>函数定义并不会执行函数体；只有当函数被调用时才会执行此操作。<br>下面就定义了一个名为 test 的函数，没有参数：</li>
+</ol>
+<p>python<br>def test():<br>    print(‘hello world’)</p>
+<ol start="2">
+<li>函数参数<br>函数定义支持可变数量的参数。<br>2.1 默认值参数<br>为参数指定默认值是非常有用的方式。调用函数时，可以使用比定义时更少的参数：</li>
+</ol>
+<p>python<br>def test(a, b&#x3D;10):<br>    print(a, b)</p>
+<p>test(10)        # 输出 10 10<br>test(10, 20)    # 输出 10 20</p>
+<p>2.2 关键字参数<br>关键字参数的顺序并不重要。<br>关键字参数必须跟在位置参数（非 key&#x3D;value 形式的参数即为位置参数）后面。<br>不能对同一个参数多次赋值。<br>关键字参数为 key&#x3D;value 的形式来调用函数:</p>
+<p>python<br>def test(a, b):<br>    print(a, b)</p>
+<p>test(a&#x3D;10, b&#x3D;20)    # 输出 10 20<br>test(b&#x3D;20, a&#x3D;10)    # 输出 10 20</p>
+<ol start="3">
+<li>函数返回值<br>return 语句返回函数的值。return 语句不带表达式参数时，返回 None。<br>没有 return 语句时，函数默认返回 None。<br>python<br>def test():<br> print(‘hello world’)</li>
+</ol>
+<p>def test2():<br>    print(‘hello world’)<br>    return ‘test2’</p>
+<p>print(test())   # 返回 None<br>print(test2())  # 返回 ‘test2’</p>
+<ol start="4">
+<li>函数调用<br>函数名加括号即可发起函数调用。<br>参数按照函数定义时的顺序、位置进行一一对应的传值就行。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/20/python%E5%87%BD%E6%95%B0/" data-id="cmfr21qw80000swbtdzq0dw72" data-title="python函数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-python循环语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/09/20/python%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="article-date">
@@ -489,6 +548,10 @@
       <ul>
         
           <li>
+            <a href="/2025/09/20/python%E5%87%BD%E6%95%B0/">python函数</a>
+          </li>
+        
+          <li>
             <a href="/2025/09/20/python%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/">python循环语句</a>
           </li>
         
@@ -502,10 +565,6 @@
         
           <li>
             <a href="/2025/09/18/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">python数据类型</a>
-          </li>
-        
-          <li>
-            <a href="/2025/09/18/%E2%80%9Cpython%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%9D/">“python基础语法”</a>
           </li>
         
       </ul>
