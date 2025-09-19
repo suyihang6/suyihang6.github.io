@@ -75,6 +75,91 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-复合语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/20/%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5/" class="article-date">
+  <time class="dt-published" datetime="2025-09-19T16:47:51.000Z" itemprop="datePublished">2025-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/20/%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5/">复合语句</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>if 语句<br>if 语句用于有条件的执行</li>
+</ol>
+<p>详见：《入门04-条件语句》</p>
+<p>python<br>score &#x3D; int(input(‘请输入分数：’))</p>
+<p>if 0 &lt;&#x3D; score &lt;&#x3D; 100:<br>    if score &lt; 60:<br>        print(‘不及格’)<br>    elif score &lt; 80:<br>        print(‘良’)<br>    else:<br>        print(‘优’)<br>else:<br>    print(‘分数输入错误，分数范围为：0~100’)</p>
+<ol start="2">
+<li>while 语句<br>while 语句用于在表达式保持为真的情况下重复地执行</li>
+</ol>
+<p>详见：《入门05-循环语句》 《循环中的 else 子句》</p>
+<p>python<br>i &#x3D; 0<br>while i &lt; 10:<br>    print(i)<br>    i +&#x3D; 1</p>
+<ol start="3">
+<li>for 语句<br>for 语句用于对序列（例如字符串、元组或列表）或其他可迭代对象中的元素进行迭代</li>
+</ol>
+<p>详见：《入门05-循环语句》 《循环中的 else 子句》</p>
+<p>python<br>for i in range(10):<br>    print(i)</p>
+<p>for c in ‘hello’:<br>    print(c)</p>
+<p>for s in [‘aa’, ‘bb’, ‘cc’]:<br>    print(s)</p>
+<ol start="4">
+<li>try 语句<br>try 语句可为一组语句指定异常处理器和&#x2F;或清理代码</li>
+</ol>
+<p>except 子句指定一个或多个异常处理程序。<br>如果存在无表达式的 except 子句，它必须是最后一个；它将匹配任何异常。<br>finally 子句指定一个 “清理” 处理程序。finally 子句总是会被执行。<br>当发生异常后 finally 子句还是会被执行，异常会被临时保存，会在 finally 子句的末尾被重新引发。<br>如果 finally 子句执行了 return, break 或 continue 语句，则被保存的异常会被丢弃。<br>补充：《异常中的 else 子句》</p>
+<p>python<br>def divide(x, y):<br>    try:<br>        result &#x3D; x &#x2F; y<br>    except ZeroDivisionError:<br>        print(“除数不能为0！”)<br>    else:<br>        print(“结果是”, result)</p>
+<ol start="5">
+<li>with 语句<br>with 语句用于包装带有使用上下文管理器定义的方法的代码块的执行。<br>这允许对普通的 try … except … finally 使用模式进行封装以方便地重用。</li>
+</ol>
+<p>with 语句会保证如果 <strong>enter</strong>() 方法返回时未发生错误，则 <strong>exit</strong>() 将总是被调用。<br>常用于文件操作，在文件操作完之后自动关闭文件。<br>python<br>with open(‘123.txt’) as f:<br>    data &#x3D; f.read()</p>
+<ol start="6">
+<li>match 语句<br>match 语句（匹配语句）用于进行模式匹配。</li>
+</ol>
+<p>详见：《match 语句》</p>
+<p>python<br>def http_error(status):<br>    match status:<br>        case 400:<br>            print(‘错误请求’)<br>        case 401 | 403 | 405:       # 或模式<br>            print(‘不允许访问’)<br>        case 404:<br>            print(‘未找到’)<br>        case <em>:                     # 通配符模式，</em> 总是会匹配成功<br>            print(‘其它错误’)</p>
+<ol start="7">
+<li>函数定义<br>函数定义就是对用户自定义函数的定义。</li>
+</ol>
+<p>详见：《入门06-函数》 《装饰器》</p>
+<p>python<br>def _sum(a, b):<br>    return a + b</p>
+<ol start="8">
+<li>类定义<br>类定义就是对类对象的定义。</li>
+</ol>
+<p>详见：《入门07-类》</p>
+<p>python<br>class Student():<br>    “””学生类”””<br>    def <strong>init</strong>(self, name, age):<br>        self.name &#x3D; name<br>        self.age &#x3D; age</p>
+<ol start="9">
+<li>协程<br>9.1 协程函数<br>使用 async def 语法定义的函数总是为协程函数，即使它们不包含 await 或 async 关键字。<br>await 表达式，async for 以及 async with 只能在协程函数体中使用。<br>协程函数的例子:</li>
+</ol>
+<p>python<br>async def func(param1, param2):<br>    do_stuff()<br>    await some_coroutine()</p>
+<p>9.2 async for 语句<br>async for 语句允许方便地对异步可迭代对象进行迭代。<br>只能在协程函数体之内使用，在协程函数体之外使用 async for 语句将引发 SyntaxError。<br>9.3 async with 语句<br>与普通的 with 语句类似，区别是 async with 语句能够在其 enter 和 exit 方法中暂停执行。<br>只能在协程函数体之内使用，在协程函数体之外使用 async with 语句将引发 SyntaxError。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/20/%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5/" data-id="cmfr2rsn00000msbt55ysd2xd" data-title="复合语句" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-lambda表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/09/20/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
@@ -609,47 +694,6 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
 
 
   
-    <article id="post-python条件语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/20/python%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/" class="article-date">
-  <time class="dt-published" datetime="2025-09-19T16:23:49.000Z" itemprop="datePublished">2025-09-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/20/python%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/">python条件语句</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>条件语句<br>if 语句<br>if 语句用于条件控制<br>if 语句包含零个或多个 elif 子句及可选的 else 子句<br>关键字 elif 是 else if 的缩写；Python 中只能使用 elif<br>if 语句可以嵌套<br>代码示例：</p>
-<p>python<br>score &#x3D; int(input(‘请输入分数：’))</p>
-<p>if 0 &lt;&#x3D; score &lt;&#x3D; 100:<br>    if score &lt; 60:<br>        print(‘不及格’)<br>    elif score &lt; 80:<br>        print(‘良’)<br>    else:<br>        print(‘优’)<br>else:<br>    print(‘分数输入错误，分数范围为：0~100’)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/20/python%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/" data-id="cmfr2aqca00073sbt4tiwekw3" data-title="python条件语句" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -686,6 +730,10 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
       <ul>
         
           <li>
+            <a href="/2025/09/20/%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5/">复合语句</a>
+          </li>
+        
+          <li>
             <a href="/2025/09/20/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">lambda表达式</a>
           </li>
         
@@ -699,10 +747,6 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
         
           <li>
             <a href="/2025/09/20/%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%BC%82%E5%B8%B8%E4%B8%AD%E7%9A%84else%E5%AD%90%E5%8F%A5/">循环与异常中的else子句</a>
-          </li>
-        
-          <li>
-            <a href="/2025/09/20/GIL%E5%85%A8%E5%B1%80%E8%A7%A3%E9%87%8A%E5%99%A8/">GIL全局解释器</a>
           </li>
         
       </ul>
