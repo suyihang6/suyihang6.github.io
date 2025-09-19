@@ -75,6 +75,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/20/python%E7%B1%BB/" class="article-date">
+  <time class="dt-published" datetime="2025-09-19T16:30:04.000Z" itemprop="datePublished">2025-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/20/python%E7%B1%BB/">python类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>类<br>类把数据与功能绑定在一起。<br>创建新类就是创建新的对象类型，从而创建该类型的新实例 。</p>
+<ol>
+<li><p>类定义<br>定义类使用关键字 class，后跟类名：<br>python<br>class MyClass:<br> pass<br>类名后可加括号，没有参数时可不加</p>
+</li>
+<li><p>实例对象<br>类的实例化使用函数表示法：<br>python<br>x &#x3D; MyClass()</p>
+</li>
+</ol>
+<p>变量 x 就是 MyClass 类的一个实例对象</p>
+<ol start="3">
+<li>实例的初始化<br>实例的初始化使用一个名为 <strong>init</strong>() 的特殊方法（固定用法）。<br>当一个类定义了 <strong>init</strong>() 方法时，类的实例化操作会自动为新创建的类实例发起调用 <strong>init</strong>()。<br>python<br>class Student():<br> “””学生类”””<br> def <strong>init</strong>(self, name, age):<br> self.name &#x3D; name<br> self.age &#x3D; age</li>
+</ol>
+<p>zhangsan &#x3D; Student(‘zhangsan’, 18)<br>lisi &#x3D; Student(‘lisi’, 19)</p>
+<p>上面定义了两个属性：姓名name 和 年龄age<br>之后的学生类Student 的所有实例（比如 zhangsan 和 lisi）均会有这两个属性</p>
+<ol start="4">
+<li><p>实例属性（变量）<br>实例的属性通过 self.{变量名} 来定义<br>多个实例之间，它们的属性是不同的变量，不影响各自的值</p>
+</li>
+<li><p>实例方法（函数）<br>实例方法就是类中定义的函数；用于操作实例属性<br>实例方法第一个参数为 self，代表实例本身，固定用法<br>python<br>class Student():<br> “””学生类”””<br> def <strong>init</strong>(self, name, age):<br> self.name &#x3D; name<br> self.age &#x3D; age<br> def get_age(self):<br> “””获取年龄”””<br> return self.age<br> def set_age(self, new_age):<br> “””修改年龄”””<br> self.age &#x3D; new_age</p>
+</li>
+</ol>
+<p>zhangsan &#x3D; Student(‘zhangsan’, 18)<br>lisi &#x3D; Student(‘lisi’, 19)</p>
+<p>print(zhangsan.age)         # 18<br>print(zhangsan.get_age())   # 18<br>zhangsan.set_age(20)<br>print(zhangsan.age)         # 20</p>
+<ol start="6">
+<li>类的继承<br>比如我们在学生类Student 的基础上创建一个女学生类StudentGirl：</li>
+</ol>
+<p>python<br>class StudentGirl(Student):<br>    “””女学生类”””<br>    def get_age(self):<br>        “””获取年龄”””<br>        return self.age - 1</p>
+<p>继承可以重写父类的方法，比如上面就重写了父类的获取年龄的方法。获取年龄时会减少 1 岁</p>
+<ol start="7">
+<li>总结<br>类的使用方法很简单，难的是类的概念需要弄清楚；我总结了几点：</li>
+</ol>
+<p>类是一群类似的群体，比如人类、动物、学生等等<br>子类和类的实例需要重点区分开：具体到个人，比如张三就是人类的实例；而不能说张三是人类的子类，你可以说黄种人是人类的子类<br>类	实例	子类<br>人	张三	黄种人<br>宠物	阿黄	狗<br>路	天安门东路	高速公路<br>鸟	阿飞	燕子</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/20/python%E7%B1%BB/" data-id="cmfr24zi100001sbt5ai5hckb" data-title="python类" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-python函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/09/20/python%E5%87%BD%E6%95%B0/" class="article-date">
@@ -548,6 +616,10 @@
       <ul>
         
           <li>
+            <a href="/2025/09/20/python%E7%B1%BB/">python类</a>
+          </li>
+        
+          <li>
             <a href="/2025/09/20/python%E5%87%BD%E6%95%B0/">python函数</a>
           </li>
         
@@ -561,10 +633,6 @@
         
           <li>
             <a href="/2025/09/20/python%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BF%90%E7%AE%97/">python数据的运算</a>
-          </li>
-        
-          <li>
-            <a href="/2025/09/18/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">python数据类型</a>
           </li>
         
       </ul>
