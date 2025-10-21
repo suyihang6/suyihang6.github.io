@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Mr.苏">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Mr.苏">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Mr.苏" type="application/atom+xml">
@@ -74,6 +74,50 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-openlist源码安装" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/20/openlist%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/" class="article-date">
+  <time class="dt-published" datetime="2025-10-19T16:36:22.000Z" itemprop="datePublished">2025-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/20/openlist%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/">openlist源码安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p><a target="_blank" rel="noopener" href="https://git-scm.cn/downloads">git</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">nodejs&gt;&#x3D;22</a><br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/pnpm">pnpm</a><br><a target="_blank" rel="noopener" href="https://golang.org/doc/install">golang&gt;&#x3D;1.24</a><br><a target="_blank" rel="noopener" href="https://gcc.gnu.org/">gcc的环境</a></p>
+<h1 id="改代理"><a href="#改代理" class="headerlink" title="改代理"></a>改代理</h1><p>go env -w GOPROXY&#x3D;<a target="_blank" rel="noopener" href="https://goproxy.cn,direct/">https://goproxy.cn,direct</a>      &#x2F;&#x2F; Windows<br>export GOPROXY&#x3D;<a target="_blank" rel="noopener" href="https://goproxy.cn,direct/">https://goproxy.cn,direct</a>         &#x2F;&#x2F; macOS 或 Linux<br>CMD黑窗口输入go env查看<br>安装好默认的是：<br>set GOPROXY&#x3D;&quot;<a target="_blank" rel="noopener" href="https://proxy.golang.org,direct/">https://proxy.golang.org,direct</a>&quot;<br>修改代理后是<br>set GOPROXY&#x3D;<a target="_blank" rel="noopener" href="https://goproxy.cn,direct/">https://goproxy.cn,direct</a></p>
+<h1 id="改环境变量"><a href="#改环境变量" class="headerlink" title="改环境变量"></a>改环境变量</h1><p>双击path<br>新建找到gcc安装的路径&#x2F;bin填入保存</p>
+<h1 id="构建前端"><a href="#构建前端" class="headerlink" title="构建前端"></a>构建前端</h1><p>git clone <a target="_blank" rel="noopener" href="https://github.com/OpenListTeam/OpenList-Frontend.git%EF%BC%88%E4%B8%8B%E8%BD%BD%E5%89%8D%E7%AB%AF%E6%96%87%E4%BB%B6%EF%BC%89">https://github.com/OpenListTeam/OpenList-Frontend.git（下载前端文件）</a><br>cd OpenList-Frontend（切换对应的目录）<br>根据自己的需求改前端文件<br>pnpm install（下载对应的包）<br>pnpm build（打包）</p>
+<h1 id="构建后端"><a href="#构建后端" class="headerlink" title="构建后端"></a>构建后端</h1><p>git glone <a target="_blank" rel="noopener" href="https://github.com/OpenListTeam/OpenList%EF%BC%88%E4%B8%8B%E8%BD%BD%E5%89%8D%E7%AB%AF%E6%96%87%E4%BB%B6%EF%BC%89">https://github.com/OpenListTeam/OpenList（下载前端文件）</a><br>将前端生成的 dist 目录复制到项目下的 public 目录下，然后执行<br>appName&#x3D;”openlist”<br>builtAt&#x3D;”$(date +’%F %T %z’)”<br>goVersion&#x3D;$(go version | sed ‘s&#x2F;go version &#x2F;&#x2F;‘)<br>gitAuthor&#x3D;$(git show -s –format&#x3D;’format:%aN &lt;%ae&gt;’ HEAD)<br>gitCommit&#x3D;$(git log –pretty&#x3D;format:”%h” -1)<br>version&#x3D;$(git describe –long –tags –dirty –always)<br>webVersion&#x3D;$(curl -s –max-time 5 “<a target="_blank" rel="noopener" href="https://api.github.com/repos/OpenListTeam/OpenList-Frontend/releases/latest">https://api.github.com/repos/OpenListTeam/OpenList-Frontend/releases/latest</a>“ -L | grep ‘“tag_name”:’ | sed -E ‘s&#x2F;.<em>“([^”]+)”.</em>&#x2F;\1&#x2F;‘ | sed ‘s&#x2F;^v&#x2F;&#x2F;‘)<br>if [ -z “$webVersion” ]; then<br>    webVersion&#x3D;”0.0.0”<br>fi<br>ldflags&#x3D;”<br>-w -s <br>-X ‘github.com&#x2F;OpenListTeam&#x2F;OpenList&#x2F;v4&#x2F;internal&#x2F;conf.BuiltAt&#x3D;$builtAt’ <br>-X ‘github.com&#x2F;OpenListTeam&#x2F;OpenList&#x2F;v4&#x2F;internal&#x2F;conf.GoVersion&#x3D;$goVersion’ <br>-X ‘github.com&#x2F;OpenListTeam&#x2F;OpenList&#x2F;v4&#x2F;internal&#x2F;conf.GitAuthor&#x3D;$gitAuthor’ <br>-X ‘github.com&#x2F;OpenListTeam&#x2F;OpenList&#x2F;v4&#x2F;internal&#x2F;conf.GitCommit&#x3D;$gitCommit’ <br>-X ‘github.com&#x2F;OpenListTeam&#x2F;OpenList&#x2F;v4&#x2F;internal&#x2F;conf.Version&#x3D;$version’ <br>-X ‘github.com&#x2F;OpenListTeam&#x2F;OpenList&#x2F;v4&#x2F;internal&#x2F;conf.WebVersion&#x3D;$webVersion’ <br>“<br>go build -ldflags&#x3D;”$ldflags” .</p>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p>搞好了会生成openlist.exe<br>在cmd中运行.&#x2F;openlist server<br>在浏览器访问127.0.0.1:5244或自己的ip地址加端口号5244就行</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/20/openlist%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/" data-id="cuiduImw2J-LSveVKZfgX2oaD" data-title="openlist源码安装" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-hexo 博客搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -608,54 +652,6 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
 
 
   
-    <article id="post-python后续学习方向" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/20/python%E5%90%8E%E7%BB%AD%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%90%91/" class="article-date">
-  <time class="dt-published" datetime="2025-09-19T16:33:08.000Z" itemprop="datePublished">2025-09-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/20/python%E5%90%8E%E7%BB%AD%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%90%91/">python后续学习方向</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>后续学习方向<br>注： 前面的 7 篇入门文章我是在认为有计算机基础的情况下书写的；如果没有计算机基础，理解起来应该较难</p>
-<ol>
-<li>接下来学习方向<br>入门篇远非 Python 的全部，但也足够你写出《基础练习题》中的绝大多数题目了</li>
-</ol>
-<p>接下来如何，我先说说我认为学习效率较高的方法：</p>
-<p>了解大概（过完入门篇）<br>边写代码边学（可过一过后面的练习题章节）<br>系统性的读完一本书（最好是教材），系统性的进行知识点回顾；查缺补漏，巩固、验证、矫正之前所学<br>所以我是建议接下来先多写代码，然后到合适的时候买本书系统性看完</p>
-<ol start="2">
-<li>Python 岗位方向<br>常见的有以下 5 个方向：</li>
-</ol>
-<p>爬虫<br>数据分析（主要使用 pandas&#x2F;numpy）<br>web 开发（主要使用 django 等框架；只适合中小型网站，且基本上岗位均要求有全栈技能）<br>自动化开发（运维自动化、自动化测试等）<br>人工智能（对学历、数学能力等要求较高）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/20/python%E5%90%8E%E7%BB%AD%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%90%91/" data-id="cuidjmwIEslhmbkQqhOMwqtbq" data-title="python后续学习方向" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -692,6 +688,10 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
       <ul>
         
           <li>
+            <a href="/2025/10/20/openlist%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/">openlist源码安装</a>
+          </li>
+        
+          <li>
             <a href="/2025/10/18/hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hexo搭建博客网站</a>
           </li>
         
@@ -707,10 +707,6 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
             <a href="/2025/09/20/%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5/">复合语句</a>
           </li>
         
-          <li>
-            <a href="/2025/09/20/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">lambda表达式</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -724,7 +720,7 @@ print(x)  # 6   # 不执行 test2() 输出的是 7
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2025 John Doe<br>
+      &copy; 2025 Mr.苏<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
